@@ -1,25 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react"
+import { Navbar } from "./components/navbar";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
-function App() {
+import Home from "./pages/Home";
+import Contacts from "./pages/Contacts";
+import Projects from "./pages/Projects";
+import NotFound from "./pages/NotFound";
+
+export const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path: "/home",
+    element: <Home />
+  },
+  {
+    path: "/contact",
+    element: <Contacts />
+  },
+  {
+    path: "/projects",
+    element: <Projects />
+  },
+  {
+    path: "*",
+    element: <NotFound />
+  }
+])
+
+export default function ToggleColorMode() {
+  const [mode, setMode] = React.useState(localStorage.getItem("mode") || "light");
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => {
+          localStorage.setItem("mode", prevMode === 'light' ? 'dark' : 'light')
+          return prevMode === 'light' ? 'dark' : 'light'
+        });
+      },
+    }),
+    [],
+  );
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+      }),
+    [mode],
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Navbar />
+        <br />
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
-
-export default App;
