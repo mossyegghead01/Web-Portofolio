@@ -17,6 +17,7 @@ export function Navbar() {
             borderStyle: 'hidden',
             top: 10,
             borderRadius: 1,
+            zIndex: 1100,
         }}>
             <Button href='/home' variant='contained' disableElevation>
                 Home
