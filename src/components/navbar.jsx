@@ -22,8 +22,8 @@ export function Navbar() {
             <Button href='/home' variant='contained' disableElevation>
                 Home
             </Button>
-            <Button href='/contact' variant='contained' disableElevation>
-                Contact
+            <Button href='/socials' variant='contained' disableElevation>
+                Socials
             </Button>
             <Button href='/projects' variant='contained' disableElevation>
                 Projects

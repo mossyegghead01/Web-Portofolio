@@ -5,7 +5,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import Home from "./pages/Home";
-import Contacts from "./pages/Contacts";
+import Socials from "./pages/Socials";
 import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
 
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: "/contact",
-    element: <Contacts />
+    path: "/socials",
+    element: <Socials />
   },
   {
     path: "/projects",

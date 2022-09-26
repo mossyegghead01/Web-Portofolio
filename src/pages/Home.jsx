@@ -97,7 +97,7 @@ export default function Home() {
                                     <Stack
                                         divider={<Divider flexItem />}
                                     >
-                                        <Link href="/contact">Contact me</Link>
+                                        <Link href="/socials">My social media</Link>
                                         <Link href="/projects">My projects</Link>
                                     </Stack>
                                 </Typography>
