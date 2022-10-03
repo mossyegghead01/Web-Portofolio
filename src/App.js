@@ -3,6 +3,8 @@ import { Navbar } from "./components/navbar";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import Particles from "react-tsparticles";
+import { loadStarsPreset } from "tsparticles-preset-stars";
 
 import Home from "./pages/Home";
 import Socials from "./pages/Socials";
@@ -34,38 +36,42 @@ const router = createBrowserRouter([
   }
 ])
 
-export default function ToggleColorMode() {
-  const [mode, setMode] = React.useState(localStorage.getItem("mode") || "light");
-  const colorMode = React.useMemo(
-    () => ({
-      toggleColorMode: () => {
-        setMode((prevMode) => {
-          localStorage.setItem("mode", prevMode === 'light' ? 'dark' : 'light')
-          return prevMode === 'light' ? 'dark' : 'light'
-        });
-      },
-    }),
-    [],
-  );
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+})
 
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode,
-        },
-      }),
-    [mode],
-  );
+function App() {
+  const particlesInit = React.useCallback(async (engine) => {
+    console.log(engine);
+    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    // starting from v2 you can add only the features you need reducing the bundle size
+    await loadStarsPreset(engine);
+  }, []);
+
+  const options = {
+    preset: "stars",
+    "fullScreen": {
+      "enable": true,
+      "zIndex": -1
+    },
+  };
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Navbar />
-        <br />
-        <RouterProvider router={router} />
-      </ThemeProvider>
-    </ColorModeContext.Provider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={options}
+      />
+      <Navbar />
+      <br />
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 }
+
+export default App

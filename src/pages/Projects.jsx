@@ -1,7 +1,8 @@
 export default function Projects() {
     return (
         <>
-            Hello from Projects
+            Welp you found me!
+            I don't know how you manage to find me but this page is not ready yet. COme back when it's ready :)
         </>
     )
 }
