@@ -98,7 +98,6 @@ export default function Home() {
                                         divider={<Divider flexItem />}
                                     >
                                         <Link href="/socials">My social media</Link>
-                                        <Link href="/projects">My projects</Link>
                                     </Stack>
                                 </Typography>
                             </CardContent>
