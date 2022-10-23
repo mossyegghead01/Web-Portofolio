@@ -48,7 +48,7 @@ export default function Home() {
                         }}>
                             <CardContent>
                                 <Typography variant="h5" component="div" sx={{ textDecoration: 'underline' }}>A bit about me</Typography>
-                                <Typography variant="body2" color="text.secondary">My name is Luthfi Haidar. I'm {age} year old teenager from Bandung, Indonesia. I'm currently an 11th student at Alfa Centauri Senior High School.</Typography>
+                                <Typography variant="body2" color="text.secondary">My name is Luthfi Haidar. I'm a {age} year old teenager from Bandung, Indonesia. I'm currently an 11th grade student at Alfa Centauri Senior High School.</Typography>
                             </CardContent>
                         </Card>
                     </Grid>
@@ -98,7 +98,7 @@ export default function Home() {
                                         divider={<Divider flexItem />}
                                     >
                                         <Link href="/socials">My social media</Link>
-                                        <Link href="/projects">My projects</Link>
+                                        {/* <Link href="/projects">My projects</Link> */}
                                     </Stack>
                                 </Typography>
                             </CardContent>
