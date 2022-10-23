@@ -19,9 +19,9 @@ export function Navbar() {
             <Button href='/socials' variant='contained' disableElevation>
                 Socials
             </Button>
-            <Button href='/projects' variant='contained' disableElevation>
+            /*<Button href='/projects' variant='contained' disableElevation>
                 Projects
-            </Button>
+            </Button>*/
         </Box>
     )
 }
