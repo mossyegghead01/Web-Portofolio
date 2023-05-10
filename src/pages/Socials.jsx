@@ -20,9 +20,6 @@ export default function Social() {
                         <Button href="https://github.com/mossyegghead01" target="_blank" rel="noopener noreferrer" variant="contained" startIcon={<GitHubIcon />} endIcon={<OpenInNewIcon />} sx={{ width: "100%", height: "100%" }}>mossyegghead01</Button>
                     </Grid>
                     <Grid item xs={6} sm={6} md={6}>
-                        <Button href="https://twitter.com/MrMossy11" target="_blank" rel="noopener noreferrer" variant="contained" startIcon={<TwitterIcon />} endIcon={<OpenInNewIcon />} sx={{ width: "100%", height: "100%" }}>MrMossy11</Button>
-                    </Grid>
-                    <Grid item xs={6} sm={6} md={6}>
                         <Button href="mailto:luthfihaidar1176@gmail.com" target="_blank" rel="noopener noreferrer" variant="contained" startIcon={<EmailIcon />} endIcon={<OpenInNewIcon />} sx={{ width: "100%", height: "100%" }}>luthfihaidar1176@gmail.com</Button>
                     </Grid>
                     <Grid item xs={6} sm={6} md={6}>
